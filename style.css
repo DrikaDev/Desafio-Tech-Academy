@@ -1,0 +1,254 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,200;1,500&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+    font-family: 'Poppins', 'Times New Roman', Times, serif ;
+    scroll-behavior: smooth;
+}
+
+img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+p {
+    font-size: 1.4rem;
+    margin-top: 5px;
+    line-height: 2.5rem;
+    font-weight: 200;
+    letter-spacing: 0.05rem;
+}
+
+.container{
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-title {
+    font-size: 4rem;
+    font-weight: 500;
+    color: black;
+   
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    text-align: center;
+    transition: 1s all;
+}
+
+.section-title:hover{
+    transform: scale(1.3);
+    text-shadow: 1px 1px 30px hwb(204 4% 2%);
+}
+
+/* Seção de apresentação */
+
+#presentation{
+    background-image: url(img/ipod-wallpaper-screen-wallpaper.jpg);
+    background-size: contain;
+    background-position: center;
+    position: relative;
+    z-index: 1;
+}
+#presentation h1{
+    display: block;
+    width: fit-content;
+    font-size: 5rem;
+    position: relative;
+    color: transparent;
+    animation: text_reveal .5s ease forwards;
+    animation-delay: 1.5s;
+}
+#presentation h1:nth-child(1){
+    animation-delay: .8s;
+}
+#presentation h1:nth-child(2){
+    animation-delay: 1.8s;
+}
+#presentation h1:nth-child(3){
+    animation: text_reveal_name .5s ease forwards;
+    animation-delay: 2.8s;
+}
+#presentation .cta{
+    display: inline-block;
+    padding: 10px 30px;
+    color: gold;
+    background-color: transparent;
+    border: 2px solid gold;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: .1rem;
+    margin-top: 20px;
+    transition: .5s ease;
+    transition-property: background-color, color;
+}
+#presentation .cta:hover{
+    color: white;
+    font-weight: 500;
+    background-color: gold;
+}
+#presentation h1 span{
+    position: absolute;
+    top: 0;
+    left:0;
+    height: 100%;
+    width: 0%;
+    animation: text_reveal_box 1s ease;
+    animation-delay: .5s;
+    background-color: gold;
+}
+#presentation h1:nth-child(1) span{
+    animation-delay: .5s;
+}
+#presentation h1:nth-child(2) span{
+    animation-delay: 1.5s;
+}
+#presentation h1:nth-child(3) span{
+    animation-delay: 2.5s;
+}
+#presentation::after{
+    height:100%;
+    width: 100%;
+    background-color:black;
+    z-index: -1;
+}
+
+/* Seção de Portifólio */
+
+#portfolio .portfolio{
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+
+#portfolio .all-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+#portfolio .project-item{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+#portfolio .project-info {
+    flex-basis: 70%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url("img/ipod-wallpaper-screen-wallpaper.jpg");
+    color: white;
+}
+
+#portfolio .project-info h1{
+    font-size: 3rem;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#portfolio .project-info p{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#portfolio .project-info li{
+    font-size: 2rem;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+#portfolio .project-img {
+    flex-basis: 30%;
+    overflow: hidden;
+}
+
+#portfolio .project-img img{
+    transition: 1s all;
+    object-fit: contain;
+}
+#portfolio .project-img img:hover{
+    transform: scale(1.1);
+}
+
+#portfolio .project-img-friends {
+    flex-basis: 80%;
+    overflow: hidden;
+    border: 25px solid gray;
+}
+
+#portfolio .project-img-friends img{
+    transition: 1s all;
+}
+#portfolio .project-img-friends img:hover{
+    transform: scale(1.1);
+}
+
+footer{
+    text-align: center;
+    width: 100%;
+}
+
+/* Keyframes */
+
+@keyframes text_reveal{
+    100%{
+        color: white;
+    }
+}
+
+@keyframes text_reveal_name{
+    100%{
+        color: gold;
+        font-weight: 500px;
+    }
+}
+
+@keyframes text_reveal_box{
+    50%{
+        width:100%;
+        left:0;
+    }
+    100%{
+        width: 0;
+        left:100%
+    }
+}
+
+/* Media Query */
+@media only screen and (min-width: 768px) {
+    #portfolio .project-item {
+        flex-direction: row;
+        height: 400px;
+        margin: 0;
+        width: 100%;
+        border-radius: 0;
+    }
+    #portfolio .all-projects .project-info{
+        height: 100%
+    }
+    #portfolio .all-projects .project-img{
+        height: 100%
+    }
+    #portfolio .project-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
